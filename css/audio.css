@@ -70,14 +70,19 @@
 }
 
 #time{
-	margin-top: 26px;
+	margin-top: 20px;
 	margin-left: 30px;
 	position: absolute;
 	float:left;
 	color: #9A9A9A;
+	font-size: 2em;
+	font-family: sans-serif;
 }
+
 #duration{
-	margin-top: 26px;
+	margin-top: 20px;
 	float:right;
 	color: #9A9A9A;
+	font-size: 2em;
+	font-family: sans-serif;
 }
