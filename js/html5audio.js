@@ -62,12 +62,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
             playhead.style.marginLeft = newMargLeft + "px";
+            progress.style.width = newMargLeft + "px";
         }
         if (newMargLeft < 0) {
             playhead.style.marginLeft = "0px";
+            progress.style.width = "0px";
         }
         if (newMargLeft > timelineWidth) {
             playhead.style.marginLeft = timelineWidth + "px";
+            progress.style.width = timelineWidth + "px";
         }
     }
 
