@@ -10,7 +10,7 @@
 	height: 60px;
 	margin: auto;
 	margin-top: 50px;
-	border: solid;
+	background-color: #F3F3F3;
 }
 /* Play/Pause Button */
 #pButton{
@@ -27,21 +27,41 @@
 /*Classes for play/pause button background*/
 .play{background: url('../img/play.png') ;}
 .pause{background: url('../img/pause.png') ;}
+.thumb{background: url('../img/thumb.png') ;}
 
 #timeline{
 	width: 382px;
-	height: 20px;
-	background: rgba(0,0,0,.3);
-	margin-top: 20px;
+	height: 60px;
 	float: left;
-	border-radius: 15px;
+}
+#thumb_line{
+	width: 382px;
+	height: 60px;
+	margin-left: 40px;
+}
+#progress_bg{
+	width: 382px;
+	height: 8px;
+	background: rgba(0,0,0,.16);
+	margin-top: 26px;
+	float: left;
+}
+
+#progress{
+	width: 0px;
+	height: 8px;
+	background: rgba(0,0,0,.82);
+	margin-top: 26px;
 }
 /*Grabable Playhead*/
 #playhead{
-	cursor: pointer;
-	width: 18px;
-	height: 18px;
-	border-radius: 50%;
-	margin-top: 1px;
-	background: black;
+	width: 43px;
+	height: 56px;
+	background-size: 50% 50%;
+	background-repeat: no-repeat;
+	background-position: center;
+	outline:none;
+	border: none;
+	margin-top: 0px;
+	float:none;
 }
