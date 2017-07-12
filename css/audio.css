@@ -74,8 +74,10 @@
 	margin-left: 30px;
 	position: absolute;
 	float:left;
+	color: #9A9A9A;
 }
 #duration{
 	margin-top: 26px;
 	float:right;
+	color: #9A9A9A;
 }

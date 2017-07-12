@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var playhead = document.getElementById('playhead'); // playhead
     var progress = document.getElementById('progress'); // playhead
     var timeline = document.getElementById('timeline'); // timeline
+    var timeLabel = document.getElementById('time'); // timeline
+    var durationLabel = document.getElementById('duration'); // timeline
 
 // timeline width adjusted for playhead
     var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
@@ -78,13 +80,59 @@ document.addEventListener("DOMContentLoaded", function (event) {
 // Synchronizes playhead position with current point in audio
     function timeUpdate() {
         var ratio = music.currentTime / duration;
-        var playPercent = timelineWidth * ratio;
-        playhead.style.marginLeft = playPercent + "px";
-        progress.style.width = playPercent + "px";
+        var playedWidth = timelineWidth * ratio;
+
+        timeLabel.textContent = formatSeconds(music.currentTime);
+
+        playhead.style.marginLeft = playedWidth + "px";
+        progress.style.width = playedWidth + "px";
         if (music.currentTime == duration) {
             pButton.className = "";
             pButton.className = "play";
         }
+    }
+
+    Number.prototype.formatTime=function(){
+        // 计算
+        var h=0,i=0,s=parseInt(this);
+        if(s>60){
+            i=parseInt(s/60);
+            s=parseInt(s%60);
+            if(i > 60) {
+                h=parseInt(i/60);
+                i = parseInt(i%60);
+            }
+        }
+        // 补零
+        var zero=function(v){
+            return (v>>0)<10?"0"+v:v;
+        };
+        if(h == 0)
+            return [zero(i),zero(s)].join(":");
+        return [zero(h),zero(i),zero(s)].join(":");
+    };
+
+    function formatSeconds(value) {
+//        var theTime = parseInt(value);// 秒
+//        var theTime1 = 0;// 分
+//        var theTime2 = 0;// 小时
+//        if(theTime > 60) {
+//            theTime1 = parseInt(theTime/60);
+//            theTime = parseInt(theTime%60);
+//                if(theTime1 > 60) {
+//                theTime2 = parseInt(theTime1/60);
+//                theTime1 = parseInt(theTime1%60);
+//                }
+//        }
+//            var result = ""+parseInt(theTime)+"";
+//            if(theTime1 > 0) {
+//            result = ""+parseInt(theTime1)+"分"+result;
+//            }
+//            if(theTime2 > 0) {
+//            result = ""+parseInt(theTime2)+"小时"+result;
+//            }
+//        return result;
+            return Number(value).formatTime()
     }
 
 //Play and Pause
@@ -106,6 +154,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 // Gets audio file duration
     music.addEventListener("canplaythrough", function () {
         duration = music.duration;
+        durationLabel.textContent = formatSeconds(duration);
     }, false);
 
 // getPosition
