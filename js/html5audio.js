@@ -74,7 +74,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 // timeUpdate
 // Synchronizes playhead position with current point in audio
     function timeUpdate() {
-        var playPercent = timelineWidth * (music.currentTime / duration);
+        var ratio = music.currentTime / duration;
+        var playPercent = timelineWidth * ratio;
         playhead.style.marginLeft = playPercent + "px";
         progress.style.width = playPercent + "px";
         if (music.currentTime == duration) {

@@ -6,18 +6,19 @@
 }
 /*Container for audio player*/
 #audioplayer{
-	width: 480px;
-	height: 60px;
+	width: 980px;
+	height: 140px;
 	margin: auto;
 	margin-top: 50px;
 	background-color: #F3F3F3;
 }
 /* Play/Pause Button */
 #pButton{
-	height:60px;
-	width: 60px;
+	height:84px;
+	width: 84px;
 	border: none;
-	background-size: 50% 50%;
+	margin-left: 28px;
+	margin-top: 28px;
 	background-repeat: no-repeat;
 	background-position: center;
 	float:left;
@@ -30,20 +31,23 @@
 .thumb{background: url('../img/thumb.png') ;}
 
 #timeline{
-	width: 382px;
-	height: 60px;
+	width: auto;
+	height: auto;
 	float: left;
 }
 #thumb_line{
-	width: 382px;
-	height: 60px;
-	margin-left: 40px;
+	width: 760px;
+	height: auto;
+	margin-left: 120px;
+	position: absolute;
+	margin-top:40px;
 }
 #progress_bg{
-	width: 382px;
+	width: 760px;
 	height: 8px;
 	background: rgba(0,0,0,.16);
-	margin-top: 26px;
+	margin-top: 66px;
+	margin-left: 30px;
 	float: left;
 }
 
@@ -51,17 +55,27 @@
 	width: 0px;
 	height: 8px;
 	background: rgba(0,0,0,.82);
-	margin-top: 26px;
+	margin-top: 66px;
+	margin-left: 30px;
 }
 /*Grabable Playhead*/
 #playhead{
 	width: 43px;
 	height: 56px;
-	background-size: 50% 50%;
 	background-repeat: no-repeat;
 	background-position: center;
 	outline:none;
 	border: none;
-	margin-top: 0px;
 	float:none;
+}
+
+#time{
+	margin-top: 26px;
+	margin-left: 30px;
+	position: absolute;
+	float:left;
+}
+#duration{
+	margin-top: 26px;
+	float:right;
 }
