@@ -1,29 +1,30 @@
-/* Absolute Center */
-.abs-center {
-    margin: auto;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+div.audio {
+    display: block;
+    clear: both;
+    float: left;
 }
 
-/*Container for audio player*/
+.audio_control {
+    display: flex;
+}
+
+#wrapper{
+}
+
 #audioplayer {
-    width: 980px;
-    height: 140px;
-    margin: auto;
-    margin-top: 50px;
+    width: 100vw;
+    height: 12vw;
+    margin-top: 1vw;
+    padding-top: 3vw;
     background-color: #F3F3F3;
 }
 
 /* Play/Pause Button */
 #pButton {
-    height: 84px;
-    width: 84px;
+    width: 8vw;
+    height: 8vw;
     border: none;
-    margin-left: 28px;
-    margin-top: 28px;
+    margin-left: 3vw;
     background-repeat: no-repeat;
     background-position: center;
     float: left;
@@ -34,51 +35,53 @@
 /*Classes for play/pause button background*/
 .play {
     background: url('../img/play.png');
+    background-size: 100%;
 }
 
 .pause {
     background: url('../img/pause.png');
+    background-size: 100%;
 }
 
 .thumb {
     background: url('../img/thumb.png');
+    background-size: 100%;
 }
 
 #timeline {
-    width: auto;
+    width: 80vw;
     height: auto;
     float: left;
+    margin-left: 3vw;
 }
 
-#thumb_line {
-    width: 760px;
-    height: auto;
-    margin-left: 120px;
-    position: absolute;
-    margin-top: 40px;
-}
 
 #progress_bg {
-    width: 760px;
-    height: 8px;
+    width: 80vw;
+    height: 0.8vw;
     background: rgba(0, 0, 0, .16);
-    margin-top: 66px;
-    margin-left: 30px;
+    margin-top: 4vw;
     float: left;
 }
 
 #progress {
     width: 0px;
-    height: 8px;
+    height: 0.8vw;
     background: rgba(0, 0, 0, .82);
-    margin-top: 66px;
-    margin-left: 30px;
+    margin-top: 4vw;
 }
 
-/*Grabable Playhead*/
+#thumb_line {
+    width: 80vw;
+    height: auto;
+    margin-left: 12vw;
+    position: absolute;
+    margin-top: 1.3vw;
+}
+
 #playhead {
-    width: 43px;
-    height: 56px;
+    width: 4vw;
+    height: 6vw;
     background-repeat: no-repeat;
     background-position: center;
     outline: none;
@@ -87,19 +90,19 @@
 }
 
 #time {
-    margin-top: 20px;
-    margin-left: 30px;
+    margin-top: 2vw;
     position: absolute;
     float: left;
     color: #9A9A9A;
-    font-size: 2em;
+    font-size: 4vw;
     font-family: sans-serif;
 }
 
 #duration {
-    margin-top: 20px;
+    text-align: right;
+    margin-top: 2vw;
     float: right;
     color: #9A9A9A;
-    font-size: 2em;
+    font-size: 4vw;
     font-family: sans-serif;
 }
