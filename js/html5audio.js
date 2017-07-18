@@ -65,7 +65,7 @@ function initPlayer(playerControl) {
         var newMargLeft = event.clientX - getPosition(timeline);
 
         if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
-            playhead.style.marginLeft = newMargLeft + "px";
+            playhead.style.marginLeft = newMargLeft + "vw";
             progress.style.width = newMargLeft + "px";
         }
         if (newMargLeft < 0) {
@@ -73,21 +73,29 @@ function initPlayer(playerControl) {
             progress.style.width = "0px";
         }
         if (newMargLeft > timelineWidth) {
-            playhead.style.marginLeft = timelineWidth + "px";
+            playhead.style.marginLeft = timelineWidth + "vw";
             progress.style.width = timelineWidth + "px";
         }
     }
 
 // timeUpdate
 // Synchronizes playhead position with current point in audio
+
+    var shouldUpdate = 0
+
     function timeUpdate() {
+        if (shouldUpdate++ != 0) {
+            if (shouldUpdate == 3)
+                shouldUpdate = 0
+            return
+        }
         var ratio = music.currentTime / duration;
-        var playedWidth = timelineWidth * ratio;
+        var playedWidth = 100 * ratio;
 
         timeLabel.textContent = formatSeconds(music.currentTime);
 
-        playhead.style.marginLeft = playedWidth + "px";
-        progress.style.width = playedWidth + "px";
+        playhead.style.marginLeft = playedWidth + "vw";
+        progress.style.width = playedWidth + "vw";
         if (music.currentTime == duration) {
             pButton.className = "";
             pButton.className = "play";
