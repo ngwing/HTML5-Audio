@@ -1,88 +1,105 @@
 /* Absolute Center */
-.abs-center{
-	margin: auto;
-	position: fixed;
-	top:0; right:0; bottom:0; left:0;
+.abs-center {
+    margin: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
+
 /*Container for audio player*/
-#audioplayer{
-	width: 980px;
-	height: 140px;
-	margin: auto;
-	margin-top: 50px;
-	background-color: #F3F3F3;
+#audioplayer {
+    width: 980px;
+    height: 140px;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #F3F3F3;
 }
+
 /* Play/Pause Button */
-#pButton{
-	height:84px;
-	width: 84px;
-	border: none;
-	margin-left: 28px;
-	margin-top: 28px;
-	background-repeat: no-repeat;
-	background-position: center;
-	float:left;
-	outline:none;
+#pButton {
+    height: 84px;
+    width: 84px;
+    border: none;
+    margin-left: 28px;
+    margin-top: 28px;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    outline: none;
 
 }
+
 /*Classes for play/pause button background*/
-.play{background: url('../img/play.png') ;}
-.pause{background: url('../img/pause.png') ;}
-.thumb{background: url('../img/thumb.png') ;}
-
-#timeline{
-	width: auto;
-	height: auto;
-	float: left;
-}
-#thumb_line{
-	width: 760px;
-	height: auto;
-	margin-left: 120px;
-	position: absolute;
-	margin-top:40px;
-}
-#progress_bg{
-	width: 760px;
-	height: 8px;
-	background: rgba(0,0,0,.16);
-	margin-top: 66px;
-	margin-left: 30px;
-	float: left;
+.play {
+    background: url('../img/play.png');
 }
 
-#progress{
-	width: 0px;
-	height: 8px;
-	background: rgba(0,0,0,.82);
-	margin-top: 66px;
-	margin-left: 30px;
+.pause {
+    background: url('../img/pause.png');
 }
+
+.thumb {
+    background: url('../img/thumb.png');
+}
+
+#timeline {
+    width: auto;
+    height: auto;
+    float: left;
+}
+
+#thumb_line {
+    width: 760px;
+    height: auto;
+    margin-left: 120px;
+    position: absolute;
+    margin-top: 40px;
+}
+
+#progress_bg {
+    width: 760px;
+    height: 8px;
+    background: rgba(0, 0, 0, .16);
+    margin-top: 66px;
+    margin-left: 30px;
+    float: left;
+}
+
+#progress {
+    width: 0px;
+    height: 8px;
+    background: rgba(0, 0, 0, .82);
+    margin-top: 66px;
+    margin-left: 30px;
+}
+
 /*Grabable Playhead*/
-#playhead{
-	width: 43px;
-	height: 56px;
-	background-repeat: no-repeat;
-	background-position: center;
-	outline:none;
-	border: none;
-	float:none;
+#playhead {
+    width: 43px;
+    height: 56px;
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: none;
+    border: none;
+    float: none;
 }
 
-#time{
-	margin-top: 20px;
-	margin-left: 30px;
-	position: absolute;
-	float:left;
-	color: #9A9A9A;
-	font-size: 2em;
-	font-family: sans-serif;
+#time {
+    margin-top: 20px;
+    margin-left: 30px;
+    position: absolute;
+    float: left;
+    color: #9A9A9A;
+    font-size: 2em;
+    font-family: sans-serif;
 }
 
-#duration{
-	margin-top: 20px;
-	float:right;
-	color: #9A9A9A;
-	font-size: 2em;
-	font-family: sans-serif;
+#duration {
+    margin-top: 20px;
+    float: right;
+    color: #9A9A9A;
+    font-size: 2em;
+    font-family: sans-serif;
 }

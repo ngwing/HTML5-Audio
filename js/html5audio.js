@@ -1,13 +1,14 @@
-document.addEventListener("DOMContentLoaded", function (event) {
-
-    var music = document.getElementById('music'); // id for audio element
+function initPlayer(playerControl) {
+    var music = playerControl.find('#music')[0]; // id for audio element
+    music.load()
     var duration; // Duration of audio clip
-    var pButton = document.getElementById('pButton'); // play button
-    var playhead = document.getElementById('playhead'); // playhead
-    var progress = document.getElementById('progress'); // playhead
-    var timeline = document.getElementById('timeline'); // timeline
-    var timeLabel = document.getElementById('time'); // timeline
-    var durationLabel = document.getElementById('duration'); // timeline
+    var pButton = $(playerControl).find('#pButton')[0]; // play button
+    var playhead = $(playerControl).find('#playhead')[0]; // playhead
+    var progress = $(playerControl).find('#progress')[0]; // playhead
+    var timeline = $(playerControl).find('#timeline')[0]; // timeline
+    var timeLabel = $(playerControl).find('#time')[0]; // timeline
+    var durationLabel = $(playerControl).find('#duration')[0]; // timeline
+
 
 // timeline width adjusted for playhead
     var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
@@ -24,15 +25,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
         music.currentTime = duration * clickPercent(event);
     }, false);
 
+// makes playhead draggable
+    playhead.addEventListener('mousedown', mouseDown, false);
+    window.addEventListener('mouseup', mouseUp, false);
+
 // returns click as decimal (.77) of the total timelineWidth
     function clickPercent(event) {
         return (event.clientX - getPosition(timeline)) / timelineWidth;
 
     }
 
-// makes playhead draggable
-    playhead.addEventListener('mousedown', mouseDown, false);
-    window.addEventListener('mouseup', mouseUp, false);
 
 // Boolean value so that audio position is updated only when the playhead is released
     var onplayhead = false;
@@ -92,24 +94,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     }
 
-    Number.prototype.formatTime=function(){
+    Number.prototype.formatTime = function () {
         // 计算
-        var h=0,i=0,s=parseInt(this);
-        if(s>60){
-            i=parseInt(s/60);
-            s=parseInt(s%60);
-            if(i > 60) {
-                h=parseInt(i/60);
-                i = parseInt(i%60);
+        var h = 0, i = 0, s = parseInt(this);
+        if (s > 60) {
+            i = parseInt(s / 60);
+            s = parseInt(s % 60);
+            if (i > 60) {
+                h = parseInt(i / 60);
+                i = parseInt(i % 60);
             }
         }
         // 补零
-        var zero=function(v){
-            return (v>>0)<10?"0"+v:v;
+        var zero = function (v) {
+            return (v >> 0) < 10 ? "0" + v : v;
         };
-        if(h == 0)
-            return [zero(i),zero(s)].join(":");
-        return [zero(h),zero(i),zero(s)].join(":");
+        if (h == 0)
+            return [zero(i), zero(s)].join(":");
+        return [zero(h), zero(i), zero(s)].join(":");
     };
 
     function formatSeconds(value) {
@@ -132,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 //            result = ""+parseInt(theTime2)+"小时"+result;
 //            }
 //        return result;
-            return Number(value).formatTime()
+        return Number(value).formatTime()
     }
 
 //Play and Pause
@@ -162,6 +164,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function getPosition(el) {
         return el.getBoundingClientRect().left;
     }
+}
 
-    /* DOMContentLoaded*/
-});
+
+/* DOMContentLoaded*/
+
