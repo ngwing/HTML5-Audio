@@ -12,6 +12,10 @@ function initPlayer(playerControl) {
 
 // timeline width adjusted for playhead
     var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+    var thumbWidth = Math.round(screen.width * 0.04)
+    var thumbHeight = Math.round(screen.width * 0.06)
+    playhead.style.width = thumbWidth + "px"
+    playhead.style.height = thumbHeight + "px"
 
 // play button event listenter
     pButton.addEventListener("click", play);
@@ -81,21 +85,22 @@ function initPlayer(playerControl) {
 // timeUpdate
 // Synchronizes playhead position with current point in audio
 
-    var shouldUpdate = 0
+    // var shouldUpdate = 0
 
     function timeUpdate() {
-        if (shouldUpdate++ != 0) {
-            if (shouldUpdate == 3)
-                shouldUpdate = 0
-            return
-        }
+        // if (shouldUpdate++ != 0) {
+        //     if (shouldUpdate == 3)
+        //         shouldUpdate = 0
+        //     return
+        // }
         var ratio = music.currentTime / duration;
-        var playedWidth = 100 * ratio;
+        var playedWidth = timelineWidth * ratio;
 
         timeLabel.textContent = formatSeconds(music.currentTime);
 
-        playhead.style.marginLeft = playedWidth + "vw";
-        progress.style.width = playedWidth + "vw";
+        playhead.style.marginLeft = playedWidth + "px";
+
+        progress.style.width = playedWidth + "px";
         if (music.currentTime == duration) {
             pButton.className = "";
             pButton.className = "play";
